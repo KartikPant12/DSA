@@ -1,6 +1,4 @@
 
-
-
 public static  void main
 public static void match(String txt , String pat){
     int m = pat.length();
@@ -28,3 +26,8 @@ public static void match(String txt , String pat){
         }
     }
     
+
+patch-1
+ hbcdjc
+
+
