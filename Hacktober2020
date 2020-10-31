@@ -1,5 +1,13 @@
 
 public static  void main
+public int longestPalindromeSubseq(String s) {
+        int n = s.length();
+        int[][] dp = new int[n][n];
+        // int ans = longestPalindromeSubseq(s,0,n-1,dp);
+        int ans = longestPalindromeSubseqDP(s,0,n-1,dp);
+
+        return ans;
+    }
 
  public int countSubstrings(String s) {
         int n = str.length();
