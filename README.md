@@ -1,5 +1,36 @@
 # DSA
+ public int longestPalindromeSubseqDP(String s,int I,int J,int[][] dp) {
+        int n = s.length();
+        String[][] sdp = new String[n][n];
+        for(String[] d: sdp) Arrays.fill(d,"");
 
+        for(int gap = 0;gap<n;gap++){
+            for(int i=0,j=gap;j<n;i++,j++){
+                
+                if(i == j) {
+                    dp[i][j] = (i == j) ? 1: 0;
+                    sdp[i][j] = s.charAt(i) + "";
+                    continue;
+                }
+
+                if(s.charAt(i) == s.charAt(j)){
+                    dp[i][j] = dp[i+1][j-1] + 2;
+                    sdp[i][j] = s.charAt(i) + sdp[i+1][j-1] +s.charAt(i);
+                }
+                else{
+                    if(dp[i+1][j] > dp[i][j-1]){
+                        dp[i][j] = dp[i+1][j];
+                        sdp[i][j] = sdp[i+1][j];
+                    }else{
+                        dp[i][j] = dp[i][j-1];
+                        sdp[i][j] = sdp[i][j-1];
+                    }
+                }               
+            }
+        }
+
+        return dp[I][J];
+    }
 
 public static int boardPathDP(int sp, int ep , int [] dp){
     for(sp = ep;sp>=0;sp--){
