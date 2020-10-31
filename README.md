@@ -92,4 +92,25 @@ public static int Friendspairing(int n, int [] dp)
 }
 
 
+public static int boardPathOpti(int n)
+{
+    LinkedList<Integer> ll = new LinkedList<>();
+
+    for(int si =n;si>=0;si--)
+    {
+        if(ll.size()<=1) ll.addFirst(1);
+        else if(ll.size()<=6) ll.addLast(2 * ll.getFirst());
+        else{
+            ll.addLast(2 * ll.getFirst() - ll.getLast());
+        }
+    }
+
+    return ll.getFirst();
+}
+
+
+
+
+
+
 
