@@ -138,6 +138,38 @@ public static int boardPathOpti(int n)
 
 
 
+public static void DijkstraAlgo(ArrayList<Edge>[] graph,int N){
+        boolean[] vis = new boolean[N];
+        int[] dis = new int[N];
+        int[] par = new int[N];
 
+        Arrays.fill(dis,(int)1e8);
+        Arrays.fill(par,-1)
+
+        PriorityQueue<dijkstraPair> que = new PriorityQueue<>((a,b)->{
+            return a.wsf - b.wsf; // this - other
+        });
+
+        que.add(new dijkstraPair(0,-1,0));
+        dis[0] = 0;
+
+        int EdgesCount = 1;
+        while(EdgesCount <= N - 1){
+            dijkstraPair pair = que.remove();
+            
+            if(vis[pair.vtx]) continue;
+            if(pair.par != -1) EdgesCount++;
+
+            vis[pair.vtx] = true;
+            par[pair.vtx] = pair.par;
+
+            for(Edge e: graph[pair.vtx]){
+                if(!vis[e.v] && pair.wsf + e.w < dis[e.v]){
+                    dis[e.v] = pair.wsf + e.w;
+                    que.add(new primsPair(e.v,pair.vtx,pair.wsf + e.w));
+                }
+            }
+        }
+    }
 
 
