@@ -171,5 +171,17 @@ public static void DijkstraAlgo(ArrayList<Edge>[] graph,int N){
             }
         }
     }
+     public int longestPalindromeSubseq(String s,int i,int j,int[][] dp) {
+        if( i > j || i == j) return dp[i][j] = (i == j) ? 1: 0;
+
+        if(dp[i][j]!=0) return dp[i][j];
+
+        if(s.charAt(i) == s.charAt(j)) dp[i][j] = longestPalindromeSubseq(s,i+1,j-1,dp) + 2;
+        else dp[i][j] = Math.max(longestPalindromeSubseq(s,i+1,j,dp),longestPalindromeSubseq(s,i,j-1,dp));
+
+        return dp[i][j];
+    }
+
+    
 
 
