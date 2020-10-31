@@ -35,4 +35,28 @@ public static void SCC(){
     }
 }
 
+public static int findPath(int [][] dp , int sr , int sc , String path){
+
+    if(sr == dp.length -1 && sc == dp[0].length-1){
+        System.out.println(path);
+        return 1;
+    }
+ 
+ 
+     int count = 0;
+ for(int d=0;d<dir.length;d++){
+     for(int i=1;i<4;i++){
+     int x = sr + i*dir[d][0];
+     int y = sc + i*dir[d][1];
+     
+     if(x>=0 && y >=0 && x <dp.length && y <dp[0].length){
+         count+=findPath(dp,x,y,path+psf[d]+i);
+     }
+ }
+}
+    return count;
+ }
+ 
+
+
 
