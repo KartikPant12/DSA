@@ -57,6 +57,23 @@ public static int findPath(int [][] dp , int sr , int sc , String path){
     return count;
  }
  
+ 
+ 
+public static int Friendspairing(int n, int [] dp)
+{
+    int c = (int)1e9 + 7;
+    for(int n=0;n<=N;n++){
+        if(n<=1)
+        {
+            dp[n] = 1;
+            continue;
+        }
+
+        dp[n] = (dp[n-1]%c + (dp[n-2] %c *(n-1)%c)%c)%c;
+    }
+
+    return dp[N];
+}
 
 
 
