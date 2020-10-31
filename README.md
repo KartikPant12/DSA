@@ -1,6 +1,22 @@
 # DSA
 
 
+public static int boardPathDP(int sp, int ep , int [] dp){
+    for(sp = ep;sp>=0;sp--){
+        if(sp == ep){
+            dp[sp] = 1;
+            continue;
+        }
+
+
+        for(int dice =1 ;dice<=6 && sp + dice  <=ep;dice++){
+            dp[sp]+=dp[sp+dice];
+        }
+    }
+
+    return dp[0];
+}
+
 public static void SCC(){
 
     //Topological Order
