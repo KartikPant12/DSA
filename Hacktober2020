@@ -54,3 +54,14 @@ patch-1
     }
 
 
+    public class dijkstraPair{
+        int vtx = 0;
+        int par = 0;
+        int wsf = 0;
+
+        dijkstraPair(int vtx,int par,int wsf){
+            this.vtx = vtx;
+            this.par = par;
+            this.wsf = wsf;
+        }
+    }
