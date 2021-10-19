@@ -294,5 +294,27 @@ public static void DijkstraAlgo(ArrayList<Edge>[] graph,int N){
         return find(s,p);
     }
     
+ 
+     public ListNode removeNthFromEnd(ListNode head, int n) {
+     
+        if(head == null || (head.next == null && n == 1)) return null;
+            
+        ListNode curr = head;
+        while(n-->0 && curr!=null) curr = curr.next;
+        if(curr == null) return head.next;
+        
+        ListNode temp = head;
+        while(curr.next!=null)
+        {
+            curr = curr.next;
+            temp = temp.next;
+        }
+        
+        
+        temp.next = temp.next.next;
+        
+        return head;
+        
+    }
 
 
